@@ -80,7 +80,7 @@ def main():
 
         """LOOPING & PRINTING"""
 
-        print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40} {6}'.format("DATE", "USER", "KIND", "PHASE", "TASK", "TITLE", "CONTENT"))
+        print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40}'.format("DATE", "USER", "KIND", "PHASE", "TASK", "TITLE"))
 
         for activity in sorted(activities):
             activity_timestamp = activity[0][:19].replace("T", " @ ")
@@ -90,14 +90,14 @@ def main():
             # comment
             if activity[2] == "COMMENT":
                 comment_text = activity[3]
-                print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40} {6}'.format(activity_timestamp, activity_user,activity_kind, "", "", "",comment_text))
+                print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40}\n{6}\n\n'.format(activity_timestamp, activity_user,activity_kind, "", "", "",comment_text))
 
             # NOTES
             if activity[2] == "NOTE":
                 note_title = activity[3]
                 note_text = activity[4]
                 note_phase = activity[5]
-                print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40} {6}'.format(activity_timestamp, activity_user,activity_kind, note_phase, "", note_title,note_text))
+                print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40}\n{6}\n\n'.format(activity_timestamp, activity_user,activity_kind, note_phase, "", note_title,note_text))
 
             # phase
             if activity[2] == "PHASE":
@@ -105,7 +105,7 @@ def main():
                 task_name = activity[4]
                 task_title = activity[5]
                 task_content = activity[6]
-                print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40} {6}'.format(activity_timestamp, activity_user,activity_kind, phase_name, task_name, task_title,task_content))
+                print('{0:25} {1:25} {2:10} {3:40} {4:40} {5:40}\n{6}\n\n'.format(activity_timestamp, activity_user,activity_kind, phase_name, task_name, task_title,task_content))
 
 		
     except Exception as e:
